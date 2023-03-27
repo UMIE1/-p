@@ -1,5 +1,5 @@
 #include<assert.h>//使用assert需要包含头文件assert.h
-void my_strcpy(char*dis, char *sou){
+void my_strcpy(char*dis, const char *sou){
 	assert(dis!=NULL);//断言，判断（）的语句，如果后面的条件为假，则报错并找到错误的文件和地方
 	assert(sou != NULL);
 	while (*dis++ = *sou++)
