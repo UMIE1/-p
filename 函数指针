@@ -1,1 +1,14 @@
-
+int test(int a,int b)
+{
+	return a + b;
+}
+int main()
+{
+	//int a = 10;
+	//int b = 20;
+	//test(a,b);
+	//printf("%p", &test);//%p打印地址
+	int (*p)(int, int) = test;//函数指针--指向函数的指针  指针存放的是函数的地址
+	printf("%d", (*p)(30, 40));
+	return 0;
+}
