@@ -1,0 +1,27 @@
+void add(int x, int y)
+{
+	return x+y;
+}
+void sub(int x, int y)
+{
+	return x - y;
+}
+void cf(int x, int y)
+{
+	return x * y;
+}
+void chf(int x, int y)
+{
+	return x / y;
+}
+int main()
+{
+	
+	int(*p1[4])(int ,int) = {add,sub,cf,chf};//函数指针数组
+
+	for (int i = 0; i < 4; i++) {
+		printf("%d\n", p1[i](10,5));
+	}
+
+	return 0;
+}
