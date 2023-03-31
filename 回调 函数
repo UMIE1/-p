@@ -1,0 +1,15 @@
+void str(char *a)
+{
+	printf("%s\n",a);
+}
+test(void (*p)(char*))
+{
+	printf("test\n");
+	p("bittttttttt");//调用函数指针
+}
+int main()
+{
+	
+	test(str);
+	return 0;
+}
