@@ -25,3 +25,74 @@ int main()
 
 	return 0;
 }
+
+
+//第二种写法
+//计算器
+void menu()
+{
+	printf("###############\n");
+	printf("#1>add   2>sub#\n");
+	printf("#3>mul   4>div#\n");
+	printf("#0>       exit#\n");
+	printf("###############\n");
+}
+
+int add(int x, int y)
+{
+	return x+y;
+}
+int sub(int x, int y)
+{
+	return x - y;
+}
+int mul(int x, int y)
+{
+	return x * y;
+}
+int div(int x, int y)
+{
+	return x / y;
+}
+void cloc(int (*p)(int, int))//传参是传的函数指针
+{
+	int x = 0;
+	int y = 0;
+	printf("请输入两个相关数：");
+	scanf("%d%d", &x, &y);
+	printf("%d\n", p(x, y));
+}
+int main()
+{
+	
+	int input = 0;
+	int (*parr[5])(int, int) = { 0,add,sub,mul,div };
+	do {
+		menu();
+		printf("请输入您要的操作符\n");
+		scanf("%d", &input);
+		switch(input)
+		{
+		case 1:
+			cloc(add);
+				break;
+		case 2:
+			cloc(sub);
+				break;
+		case 3:
+			cloc(mul);
+				break;
+		case 4:
+			cloc(div);
+				break;
+		case 0:
+			printf("退出\n");
+			break;
+		default:
+			printf("输入错误\n");
+
+		}
+
+	} 
+	while (input);	
+}
