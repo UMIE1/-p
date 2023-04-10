@@ -1,0 +1,30 @@
+struct stu {
+	char name[10];
+	int age;
+};
+int com_stu_age(const void*e1,const void *e2)
+{
+	//强制类型转换
+	//qosrt是库函数—排序—快速排序 quick - sort 用法
+	//	void* 类型的指针可以接受任意类型的地址
+	//	void* 类型的指针不能进行解引用的操作，也不可以进行加减整除的操作。
+	//	Compare函数 < 0 第一个元素小于第二个元素返回 一个小于0的数
+	//	>0 第一个元素大于第二个元素返回一个大于0的数
+	//	0 第一个元素等于第二个元素的时候返回
+
+	return ((struct stu*)e1)->age- ((struct stu*)e2)->age;
+}
+void test() {
+	struct stu s[2] = { {"lihua",100},{"wangwu",90} };
+	int len = sizeof(s) / sizeof(s[0]);
+	//qsort()函数参数   数组的地址   数组的长度  数组元素个数的大小  比较函数（const void * e1, const void * e2）
+	qsort(s,len,sizeof(s[0]),com_stu_age);
+	for (int i = 0; i < len; i++) {
+		printf("%s %d\n",s[i].name,s[i].age);
+	}
+}
+int main()
+{
+	test();
+	return 0;
+}
